@@ -16,9 +16,27 @@ const connect = function() {
     conn.write('Name: DNH');
     console.log('Connected to Snek Game Server');
   });
+
   return conn;
 };
 
 module.exports = {
   connect
 };
+
+
+
+/// Hardcoded move tests
+
+/*
+  conn.on('connect', () => {
+    const moves = ['up', 'up', 'left', 'down', 'left'];
+
+    for (let i = 0; i < moves.length; i++) {
+      setTimeout(() => {
+        conn.write(`Move: ${moves[i]}`);
+      }, 1000 * i);
+    }
+
+  });
+*/
