@@ -22,6 +22,12 @@ const setupInput = function(conn) {
     if (handleUserInput === 'd') {
       conn.write('Move: right');
     }
+    if (handleUserInput === 'm') {
+      conn.write('Say: Mmm dots');
+    }
+    if (handleUserInput === 'h') {
+      conn.write('Say: Hissss');
+    }
   });
   return stdin;
 };
