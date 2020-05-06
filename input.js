@@ -1,6 +1,7 @@
+let connection;
 
-
-const setupInput = function() {
+const setupInput = function(conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
@@ -8,6 +9,18 @@ const setupInput = function() {
   stdin.on('data', (handleUserInput) => {
     if (handleUserInput === '\u0003') {
       process.exit();
+    }
+    if (handleUserInput === 'w') {
+      conn.write('Move: up');
+    }
+    if (handleUserInput === 'a') {
+      conn.write('Move: left');
+    }
+    if (handleUserInput === 's') {
+      conn.write('Move: down');
+    }
+    if (handleUserInput === 'd') {
+      conn.write('Move: right');
     }
   });
   return stdin;
