@@ -1,11 +1,11 @@
 const net = require('net');
-
+const { IP, PORT } = require('./constants');
 // Establish connection with the game server
 
 const connect = function() {
   const conn = net.createConnection({
-    host: '50.64.116.162',
-    port: 50541
+    host: IP,
+    port: PORT
   });
   //interpret incoming data as text
   conn.setEncoding('utf8');
@@ -23,20 +23,3 @@ const connect = function() {
 module.exports = {
   connect
 };
-
-
-
-/// Hardcoded move tests
-
-/*
-  conn.on('connect', () => {
-    const moves = ['up', 'up', 'left', 'down', 'left'];
-
-    for (let i = 0; i < moves.length; i++) {
-      setTimeout(() => {
-        conn.write(`Move: ${moves[i]}`);
-      }, 1000 * i);
-    }
-
-  });
-*/
